@@ -4,4 +4,8 @@ This is a pretty straightforward flake that exposes a couple different build
 directives for various languages and project types. Currently there are a couple
 to complete.
 
-[x] C [] C++ [x] Ocaml [] FPGA []
+- [x] C
+- [ ] C++
+- [x] OCaml
+- [x] Java (ew)
+- [ ] FPGA
