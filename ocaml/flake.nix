@@ -1,5 +1,5 @@
 {
-  description = "Nix dev shell for C";
+  description = "A simple Nix Flake development environment for OCaml";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -15,17 +15,15 @@
       };
     in {
       devShells.default = pkgs.mkShell {
-        name = "c";
-        packages = with pkgs; [
-          clang
-          clang-tools
-          gdb
-          cmake
-          gnumake
-          ninja
-          pkg-config
-          lld
-          valgrind
+        name = "ocaml-dev-env";
+        packages = with pkgs.ocalmPackages; [
+          ocaml
+          dune_3
+          findlib
+          ocaml-lsp
+          ocamlformat
+          utop
+          merlin
         ];
       };
     });
