@@ -15,7 +15,7 @@
       };
     in {
       devShells.default = pkgs.mkShell {
-        name = "c";
+        name = "java";
         packages = with pkgs; [
           jdk21
           jdt-language-server
