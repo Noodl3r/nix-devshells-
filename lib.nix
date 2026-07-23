@@ -1,19 +1,16 @@
 {
-  getTemplates = path: {
+  getTemplates = templateDir: {
     templates = builtins.listToAttrs (
       map (x: {
         name = x;
-        value = let
-          dir = path + "/${x}";
-          flakeDescription = (import (dir + "/flake.nix")).description;
-        in {
-          description = flakeDescription;
-          path = dir;
+        value = rec {
+          path = templateDir + "/${x}";
+          description = (import (path + "/flake.nix")).description;
         };
       })
       (
         builtins.attrNames
-        (builtins.readDir path)
+        (builtins.readDir templateDir)
       )
     );
   };
